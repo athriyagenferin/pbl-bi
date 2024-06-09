@@ -1,0 +1,12 @@
+tugas bi membuat olap (pentaho) - Power BI
+fitur - pelaporan masalah
+dimwarga
+dimreport
+dimdate
+dimstatus
+fact(foreign key)
+
+
+hal yang di analisis : (kpi)
+bisa dianalisisi pelapor nya banyak laki laki atau perempuan, pekerjaan nya apa, jenis laporannya apa, di rt berapa paling banyak, status yang sudah selesai,ditolak,diarsip ada berapa
+bisa buat cek bulan apa yang paling banyak laporan dari warga nya

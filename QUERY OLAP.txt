@@ -1,0 +1,58 @@
+CREATE TABLE dim_warga (
+    id_dim_warga INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    no_rt INT,
+    no_kk  BIGINT,
+    nik BIGINT UNIQUE,
+    nama_lengkap VARCHAR(50),
+    jenis_kelamin VARCHAR(20),
+    tempat_lahir VARCHAR(50),
+    tanggal_lahir DATE,
+    alamat_domisili VARCHAR(100),
+    alamat_ktp VARCHAR(100),
+    no_telepon VARCHAR(15),
+    agama VARCHAR(20),
+    pekerjaan VARCHAR(50),
+    updated DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE dim_date (
+    id_dim_date INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    date DATE,
+    year INT,
+    month INT,
+    day INT,
+    updated DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE dim_status (
+    id_dim_status INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    status VARCHAR(20),
+    updated DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE dim_report (
+    id_dim_report INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nomor_laporan VARCHAR(10),
+    nik BIGINT,
+    nama_pelapor VARCHAR(50),
+    judul_laporan VARCHAR(100),
+    jenis_laporan VARCHAR(50),
+    tanggal_laporan DATE,
+    status VARCHAR(20),
+
+    updated DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (nik) REFERENCES dim_warga (nik),
+    FOREIGN KEY (id_dim_date) REFERENCES dim_date (id_dim_date),
+    FOREIGN KEY (id_dim_status) REFERENCES dim_status (id_dim_status)
+);
+
+CREATE TABLE fact_report (
+    id_dim_warga INT,
+    id_dim_report INT,
+    id_dim_date INT,
+    id_dim_status INT,
+    FOREIGN KEY (id_dim_warga) REFERENCES dim_warga (id_dim_warga),
+    FOREIGN KEY (id_dim_report) REFERENCES dim_report (id_dim_report),
+    FOREIGN KEY (id_dim_date) REFERENCES dim_date (id_dim_date),
+    FOREIGN KEY (id_dim_status) REFERENCES dim_status (id_dim_status)
+);
