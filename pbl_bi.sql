@@ -27,6 +27,11 @@ SET time_zone = "+00:00";
 -- Table structure for table `dim_date`
 --
 
+DROP DATABASE IF EXISTS `pbl_bi`;
+
+CREATE DATABASE IF NOT EXISTS `pbl_bi`;
+USE `pbl_bi`;
+
 CREATE TABLE `dim_date` (
   `id_dim_date` int NOT NULL,
   `date` date DEFAULT NULL,
@@ -34,7 +39,7 @@ CREATE TABLE `dim_date` (
   `month` int DEFAULT NULL,
   `day` int DEFAULT NULL,
   `updated` datetime DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 --
 -- Dumping data for table `dim_date`
@@ -788,7 +793,7 @@ CREATE TABLE `dim_report` (
   `tanggal_laporan` date DEFAULT NULL,
   `status` varchar(20) DEFAULT NULL,
   `updated` datetime DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 --
 -- Dumping data for table `dim_report`
@@ -816,7 +821,7 @@ CREATE TABLE `dim_status` (
   `id_dim_status` int NOT NULL,
   `status` varchar(20) DEFAULT NULL,
   `updated` datetime DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 --
 -- Dumping data for table `dim_status`
@@ -855,7 +860,7 @@ CREATE TABLE `dim_warga` (
   `agama` varchar(20) DEFAULT NULL,
   `pekerjaan` varchar(50) DEFAULT NULL,
   `updated` datetime DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 --
 -- Dumping data for table `dim_warga`
@@ -904,7 +909,7 @@ CREATE TABLE `fact_report` (
   `id_dim_report` int DEFAULT NULL,
   `id_dim_date` int DEFAULT NULL,
   `id_dim_status` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 --
 -- Dumping data for table `fact_report`

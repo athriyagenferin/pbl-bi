@@ -27,6 +27,10 @@ SET time_zone = "+00:00";
 -- Table structure for table `report`
 --
 
+CREATE DATABASE IF NOT EXISTS `pbl`;
+USE `pbl`;
+
+
 CREATE TABLE `report` (
   `nomor_laporan` varchar(10) NOT NULL,
   `nik` bigint DEFAULT NULL,
@@ -35,7 +39,7 @@ CREATE TABLE `report` (
   `jenis_laporan` varchar(50) NOT NULL,
   `tanggal_laporan` date NOT NULL,
   `status` enum('Selesai','Menunggu','Diarsipkan') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 --
 -- Dumping data for table `report`
@@ -72,7 +76,7 @@ CREATE TABLE `warga` (
   `no_telepon` varchar(15) NOT NULL,
   `agama` enum('Islam','Kristen','Katolik','Hindu','Buddha','Konghucu') NOT NULL,
   `pekerjaan` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 --
 -- Dumping data for table `warga`
